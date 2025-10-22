@@ -6,25 +6,22 @@ The goal is to help the marketing and operations teams make data-driven decision
 
 ## 📚 Data Setup and Environment
 This analysis was performed using PostgreSQL within a Dockerized environment.
-
-1. Database Schema
+### Database Schema
 The database schema includes the following core tables: <br/>
-
-`customers`: Customer's master data (`customer_id`, `full_name`, `join_date`).
+`customers`: Customer's master data (`customer_id`, `full_name`, `email`, `join_date`).
 
 `orders`: Order details (`order_id`, `customer_id`, `order_date`, `total_amount`).
 
-`loyalty_points`: Points earned by customers (`customer_id`, `points_earned`, `loyalty_id`).
+`loyalty_points`: Points earned by customers (`customer_id`, `points_earned`, `loyalty_id`, `transaction_data`, `source`). <br/>
 
-(Other tables like `products` and `order_items` were available but not used in the core reports).
+The other tables (`products` and `order_items`) were available but not used in the core reports.
 
+![LaunchMart Entity Relationship Diagram](loyalty_analytics_ERD.png)
 
-2. Setup Instructions
-The database setup was completed by running the provided Data Definition Language (DDL) and Data Manipulation Language (DML) files:
-
-Schema Creation: Executed the DDL statements in 01_schema.sql.
-
-Data Seeding: Inserted sample data using 02_seed_data.sql.
+### Setup Instructions
+The database setup was completed by running the Data Definition Language (DDL) and Data Manipulation Language (DML) files: <br/>
+* Schema Creation: Executed the DDL statements in `01_schema.sql`.
+* Data Seeding: Inserted sample data into the created tables using `02_seed_data.sql`.
 
 ## 🛠 Tools Used
 * pgAdmin 4
