@@ -2,24 +2,22 @@
 
 Hey there!👋 <br/>
 This repository holds all the SQL queries I wrote to tackle the LaunchMart loyalty program analysis project. LaunchMart is a growing African e-commerce company that recently launched a loyalty program to increase customer retention. <br/>
-The goal was pretty clear: help the marketing folks figure out who's buying, who's sticking around, and who's about to ghost us.
-
+The goal is to help the marketing and operations teams make data-driven decisions on customer behaviour, revenue performance, and loyalty engagement.
 
 ## 📚 Data Setup and Environment
-The analysis was performed using PostgreSQL within a Dockerized environment.
+This analysis was performed using PostgreSQL within a Dockerized environment.
 
 1. Database Schema
-The database schema includes the following core tables:
+The database schema includes the following core tables: <br/>
 
-customers: Customer master data (customer_id, full_name, join_date).
+`customers`: Customer's master data (`customer_id`, `full_name`, `join_date`).
 
-orders: Order details (order_id, customer_id, order_date, total_amount).
+`orders`: Order details (`order_id`, `customer_id`, `order_date`, `total_amount`).
 
-loyalty_points: Points earned by customers (customer_id, points_earned).
+`loyalty_points`: Points earned by customers (`customer_id`, `points_earned`, `loyalty_id`).
 
-(Other tables like products, order_items were available but not used in the core reports).
+(Other tables like `products` and `order_items` were available but not used in the core reports).
 
-The full Entity-Relationship Diagram (ERD) can be viewed in 03_launchMart_erd.png.
 
 2. Setup Instructions
 The database setup was completed by running the provided Data Definition Language (DDL) and Data Manipulation Language (DML) files:
