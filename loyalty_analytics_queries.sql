@@ -133,5 +133,4 @@ GROUP BY c.customer_id, c.full_name
 )
 SELECT customer_id, full_name, last_order_date as order_date, total_points
 FROM churn_risk
-WHERE total_points < 100
-AND last_order_date <= '2023-12-31':: date - 90
+WHERE total_points < 100 AND last_order_date <= '2023-12-31':: date - 90;
