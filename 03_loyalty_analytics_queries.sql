@@ -8,7 +8,7 @@ WHERE join_date >= '2023-01-01' AND join_date < '2024-01-01';
 --Q2: For each customer return customer_id, full_name, total_revenue (sum of total_amount from orders). Sort descending.
 SELECT c.customer_id, c.full_name, SUM(o.total_amount) as total_revenue
 FROM customers c
-INNER JOIN orders o
+LEFT JOIN orders o
 ON c.customer_id = o.customer_id
 GROUP BY c.customer_id
 ORDER BY total_revenue DESC;
@@ -36,7 +36,7 @@ ORDER BY order_month ASC;
 --Q5: Find customers with no orders in the last 60 days relative to 2023-12-31 (i.e., consider last active date up to 2023-12-31). Return customer_id, full_name, last_order_date.
 SELECT c.customer_id, c.full_name, MAX(o.order_date) as last_order_date
 FROM customers c
-INNER JOIN orders o
+LEFT JOIN orders o
 ON c.customer_id = o.customer_id
 WHERE o.order_date <= '2023-12-31'::date - 60
 GROUP BY c.customer_id
@@ -76,7 +76,7 @@ WHERE order_count > 1;
 --Q9: Compute total loyalty points per customer. Include customers with 0 points.
 SELECT c.customer_id, c.full_name, COALESCE(SUM(points_earned), 0) as total_points
 FROM customers c
-JOIN loyalty_points l
+INNER JOIN loyalty_points l
 ON c.customer_id = l.customer_id
 GROUP BY c.customer_id, c.full_name
 ORDER BY total_points DESC;
@@ -85,7 +85,7 @@ ORDER BY total_points DESC;
 WITH customer_points AS (
 SELECT c.customer_id, c.full_name, SUM(points_earned) as total_points
 FROM customers c
-JOIN loyalty_points l
+INNER JOIN loyalty_points l
 ON c.customer_id = l.customer_id
 GROUP BY c.customer_id, c.full_name
 ORDER BY total_points DESC
