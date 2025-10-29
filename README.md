@@ -8,11 +8,11 @@ The goal is to help the marketing and operations teams make data-driven decision
 This analysis was performed using PostgreSQL within a Dockerized environment.
 ### Database Schema
 The database schema includes the following core tables: <br/>
-`customers`: Customer's master data (`customer_id`, `full_name`, `email`, `join_date`).
+* `customers`: Customer's master data (`customer_id`, `full_name`, `email`, `join_date`).
 
-`orders`: Order details (`order_id`, `customer_id`, `order_date`, `total_amount`).
+* `orders`: Order details (`order_id`, `customer_id`, `order_date`, `total_amount`).
 
-`loyalty_points`: Points earned by customers (`customer_id`, `points_earned`, `loyalty_id`, `transaction_data`, `source`). <br/>
+* `loyalty_points`: Points earned by customers (`customer_id`, `points_earned`, `loyalty_id`, `transaction_data`, `source`). <br/>
 
 The other tables (`products` and `order_items`) were available but not used in the core reports.
 
